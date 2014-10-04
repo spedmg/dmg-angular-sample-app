@@ -1,1 +1,1 @@
-angular.module('sample', ['ng', 'ui.router']);
+var sample = angular.module('sample', ['ng', 'ui.router']);
