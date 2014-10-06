@@ -1,6 +1,7 @@
 window.services.service('HelloService', [
   '$http',
   function (http) {
+    'use strict';
 
     return {
       get: function () {
