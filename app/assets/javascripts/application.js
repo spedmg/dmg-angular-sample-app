@@ -12,5 +12,5 @@
 //
 //= require angular
 //= require angular-ui-router
+//= require sample
 //= require_tree .
-//= require_tree ./states

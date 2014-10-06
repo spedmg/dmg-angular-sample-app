@@ -10,6 +10,14 @@ window.sample.config(
                  url: '/hello',
                  views: {
                    'content': {
+                     controller: 'HelloController',
+                     resolve: {
+                       Greeting: [
+                         'HelloService',
+                         function (helloService) {
+                           return helloService.get();
+                         }]
+                     },
                      templateUrl: '/hello/index.html'
                    }
                  }
