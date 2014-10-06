@@ -28,6 +28,16 @@ gem 'spring',        group: :development
 
 group :test, :development do
   gem 'jasmine-rails', '~> 0.10.2'
+  gem 'pry'
+  gem 'pry-nav'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'rspec-core', '2.14.7'
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'selenium-webdriver', '~> 2.39.0'
+  gem 'simple_bdd'
 end
 
 # Use ActiveModel has_secure_password
