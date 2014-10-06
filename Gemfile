@@ -34,6 +34,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'rspec-core', '2.14.7'
   gem 'rspec-rails', '~> 2.14.0'
   gem 'selenium-webdriver', '~> 2.39.0'
