@@ -30,26 +30,15 @@ group :test, :development do
   gem 'jasmine-rails', '~> 0.10.2'
   gem 'pry'
   gem 'pry-nav'
+  gem 'rspec', '~> 3.0'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :test do
   gem 'capybara'
-  gem 'poltergeist'
-  gem 'rspec-core', '2.14.7'
-  gem 'rspec-rails', '~> 2.14.0'
-  gem 'selenium-webdriver', '~> 2.39.0'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver', '~> 2.44'
+  gem 'shoulda-matchers'
   gem 'simple_bdd'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-

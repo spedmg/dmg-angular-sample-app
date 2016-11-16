@@ -18,6 +18,8 @@ module.exports = function (config) {
 
       'vendor/assets/javascripts/**/*.js',
 
+      'app/assets/javascripts/sample.js',
+
       'app/assets/javascripts/**/*.js',
 
       'spec/javascripts/support/*.js',

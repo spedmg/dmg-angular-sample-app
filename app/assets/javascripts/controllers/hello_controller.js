@@ -1,9 +1,12 @@
 window.controllers.controller('HelloController', [
   '$scope',
-  'Greeting',
-  function (scope, greeting) {
+  'HelloService',
+  function (scope, helloService) {
     'use strict';
 
-    scope.greeting = greeting.data;
+    helloService.get()
+    .then(function (response) {
+      scope.greeting = response.data.hello;
+    });
   }
 ]);
