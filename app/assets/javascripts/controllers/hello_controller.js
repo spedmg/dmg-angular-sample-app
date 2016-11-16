@@ -4,9 +4,13 @@ window.controllers.controller('HelloController', [
   function (scope, helloService) {
     'use strict';
 
-    helloService.get()
-    .then(function (response) {
-      scope.greeting = response.data.hello;
-    });
+    var init = function () {
+      helloService.get()
+      .then(function (response) {
+        scope.greeting = response.data.hello;
+      });
+    }
+
+    init();
   }
 ]);

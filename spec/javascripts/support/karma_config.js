@@ -26,8 +26,6 @@ module.exports = function (config) {
       'spec/javascripts/support/**/*.js',
 
       'spec/javascripts/**/*_spec.js',
-
-      {pattern: 'spec/javascripts/fixtures/**/*', watched: false, included: false, served: true},
     ],
 
     proxies: { },
