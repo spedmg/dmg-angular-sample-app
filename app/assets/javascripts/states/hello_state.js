@@ -9,14 +9,6 @@ window.sample.config([
       views: {
         'content': {
           controller: 'HelloController',
-          //resolve: {
-          //  Greeting: [
-          //    'HelloService',
-          //      function (helloService) {
-          //        return helloService.get();
-          //      }
-          //  ]
-          //},
           templateUrl: '/hello/index.html'
         }
       }
