@@ -3,8 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require 'capybara/rails'
 require 'capybara/rspec'
-require 'simple_bdd/rspec'
-
 
 module CapybaraHelper
 
@@ -18,29 +16,17 @@ Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
-Capybara.register_driver :selenium do |app|
-  ff_path = ENV['FIREFOX_PATH']
-  Selenium::WebDriver::Firefox::Binary.path = ff_path if ff_path
-  Capybara::Selenium::Driver.new(app, :browser => :firefox)
+Capybara.register_driver :headless_chrome do |app|
+  caps = Selenium::WebDriver::Remote::Capabilities.chrome(loggingPrefs: { browser: 'ALL' })
+  opts = Selenium::WebDriver::Chrome::Options.new
+
+  chrome_args = %w[--headless --window-size=1920,1080 --no-sandbox --disable-dev-shm-usage]
+  chrome_args.each { |arg| opts.add_argument(arg) }
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: opts, desired_capabilities: caps)
 end
 
-CapybaraHelper.set_driver :webkit
-
-Capybara::Webkit.configure do |config|
-  config.ignore_ssl_errors
-  config.block_unknown_urls
-  config.skip_image_loading
+Capybara.configure do |config|
+  # change this to :chrome to observe tests in a real browser
+  config.javascript_driver = :headless_chrome
+  #config.javascript_driver = :chrome
 end
-
-RSpec.configure do |config|
-  config.before(selenium: true) do
-    puts "selenium"
-    CapybaraHelper.set_driver :selenium
-  end
-
-  config.before(chrome: true) do
-    puts "chrome"
-    CapybaraHelper.set_driver :chrome
-  end
-end
-
