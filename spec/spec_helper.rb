@@ -3,6 +3,11 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'simple_bdd'
+
+RSpec.configure do |config|
+    config.include SimpleBdd
+end
 
 module CapybaraHelper
 

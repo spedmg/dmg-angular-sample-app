@@ -30,4 +30,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'simple_bdd'
+  gem 'puma'
 end
