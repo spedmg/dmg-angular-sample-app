@@ -13,3 +13,96 @@
  *= require_tree .
  *= require_self
  */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #383838;
+  background-color: #f5f5f5;
+}
+h1 {
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+h3 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.header {
+  background-color: #2a3640;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 10px;
+}
+
+#white_text {
+  background-color: #2a3640;
+  color: white;
+}
+
+#search {
+  width: 25rem;
+  height: 1.5rem;
+}
+
+#title {
+  padding-left: 1rem;
+}
+
+#shadow {
+  padding-top: 20px;
+  background-color: #e7e7e7;
+}
+
+#container {
+  display: flex;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 10px;
+}
+
+#container > div {
+  padding-right: 10px;
+}
+
+#img {
+  width: 15rem;
+  height: 100%;
+  border-radius: 10px;
+}
+
+#user_info_container {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#user_info_container > span {
+  padding-bottom: 5px;
+}
+
+#user_info {
+  padding-bottom: 65px;
+}
+
+#birth_name {
+  margin-bottom: 0;
+}
+
+#user_name {
+  font-style: italic;
+  margin: 0;
+}
+
+#btn {
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 25px;
+  background-color: lightgrey;
+}
+#btn > a {
+  text-decoration: none;
+  background-color: lightgrey;
+}

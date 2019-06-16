@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "es6-promise": "^3.2.1",
-    "jshint": "^2.9.2",
+    "jshint": "^2.10.2",
     "karma": "^0.13.22",
     "karma-jasmine": "^0.1.5",
-    "karma-phantomjs-launcher": "^1.0.0"
+    "karma-phantomjs-launcher": "^1.0.4"
   }
 }

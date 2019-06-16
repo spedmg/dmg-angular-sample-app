@@ -1,0 +1,32 @@
+<div class="header">
+  <h3 id="white_text">DMG TEST APP</h3>
+  <div>
+    <input id="search" placeholder="Search..."/>
+  </div>
+</div>
+
+<h1 id="title">Github Directory</h1>
+
+<div ng-controller="UserController" id="shadow">
+	<div ng-repeat="user in data" id="container">
+		<div>
+			<img id="img" src={{user.avatar_url}}/>
+		</div>
+		<div id="user_info_container">
+			<div id="user_info">
+				<h3 id="birth_name">{{ user.info.name }}</h3>
+				<p id="user_name">{{ user.login }}</p>
+			</div>
+			<span>{{ user.info.location }}</span>
+			<span>{{ user.info.email }}</span>
+			<a href="{{ user.html_url }}">{{ user.html_url }}</a>
+			<span>Joined {{ user.info.created_at }}</span>
+		</div>
+		<div>
+			<h3>Popular Repositories</h3>
+			<button ng-repeat="repo in user.repos | limitTo:4" id="btn"><a href="{{repo.html_url}}">{{repo.full_name}}</a></button>
+			<h3>Bio</h3>
+			<p>{{ user.info.bio }}</p>
+		</div>
+	</div>
+</div>
