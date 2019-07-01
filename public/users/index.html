@@ -1,1 +1,54 @@
-users page
+<div class="container">
+  <div class="container__title">
+    {{ usersTitle }}
+  </div>
+  <div class="container__divider">
+  </div>
+  <div ng-if="!users && !error">
+    <div class="loader"></div>
+  </div>
+  <div class="container--center" ng-if="error">
+    {{ error }}
+  </div>
+
+  <!-- profile card -->
+  <div class="card__profile" ng-repeat="user in users">
+    <div class="card__section-left">
+      <div class="card__stats">
+        <i class="fas fa-star fa-lg"></i>
+        <i class="fas fa-user fa-lg"></i>
+        <i class="fas fa-user fa-lg"></i>
+      </div>
+    </div> <!-- close left section -->
+    <div class="card__section-right">
+      <div class="card__column card__column--35">
+        <div class="card__title">
+          <div class="card__title--bold">Firstname lastname</div>
+          <div class="card__title--italic">username</div>
+        </div>
+        <div class="card__description">
+          Location <br />
+          Email <br />
+          Github Url <br />
+          Join Date <br />
+        </div>
+      </div>
+      <div class="card__column card__column--65">
+        <div class="card__row">
+          <div class="card__title--bold card__title--gray">
+            Popular Repositories
+          </div>
+          <div class="card__pill_container">
+          </div>
+        </div>
+        <div class="card__row">
+          <div class="card__title--bold card__title--gray">
+            Bio
+          </div>
+          <div>
+            User bio text
+          </div>
+        </div>
+      </div>
+    </div> <!-- close right section -->
+  </div> <!-- close profile card -->

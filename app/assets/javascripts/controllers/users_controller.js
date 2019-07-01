@@ -3,6 +3,7 @@ window.controllers.controller('UsersController', [
   'UsersService',
   function (scope, usersService) {
     'use strict';
+    scope.usersTitle = 'Github Directory';
 
     var init = function () {
       usersService.get()
