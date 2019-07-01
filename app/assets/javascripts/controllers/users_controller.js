@@ -9,7 +9,7 @@ window.controllers.controller('UsersController', [
       usersService.getUsers()
         .then(function (response) {
           checkError(response.data);
-          scope.users = response.data.users.slice(0, 2);
+          scope.users = response.data.users.slice(0, 5);
           return Promise.all(scope.users.map(function (user) {
             return usersService.getUser(user.login);
           }));
@@ -29,6 +29,7 @@ window.controllers.controller('UsersController', [
             arr[idx] = {
               ...user,
               ...response[idx].data,
+              repoLimit: 5,
               stars: response[idx].data.repos.reduce(function (stars, repo) {
                 return stars + repo.stargazers_count;
               }, 0)
@@ -44,6 +45,10 @@ window.controllers.controller('UsersController', [
       if (data.error) {
         throw new Error(data.error);
       }
+    }
+
+    scope.toggleRepoLimit = function (user) {
+      user.repoLimit = user.repoLimit === 5 ? 30 : 5;
     }
 
     init();
