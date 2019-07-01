@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'hello' => 'hello#index'
+      get 'users' => 'users#index'
+      get 'users/:username' => 'users#show'
+      get 'repos/:username' => 'repos#index'
     end
   end
 

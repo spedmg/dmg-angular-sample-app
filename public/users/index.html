@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="container__title">
+    {{ usersTitle }}
+  </div>
+  <div class="container__divider">
+  </div>
+  <div class="container--center" ng-if="!users && !usersError">
+    <div class="loader"></div>
+  </div>
+  <div class="container--center" ng-if="usersError">
+    {{ usersError }}
+  </div>
+
+  <!-- profile card -->
+  <div class="card__profile" ng-repeat="user in users">
+    <div class="card__section-left">
+      <div class="card__stats">
+        <i ng-attr-title="Stars: {{ user.stars | number }}" class="fas fa-star fa-lg"></i>
+        <i ng-attr-title="Followers: {{ user.followers | number }}" class="fas fa-user fa-lg"></i>
+        <i ng-attr-title="Following: {{ user.following | number }}" class="fas fa-user fa-lg"></i>
+      </div>
+      <img class="card__image" alt="profile" ng-src="{{ user.avatar_url }}" />
+    </div> <!-- close left section -->
+    <div class="card__section-right">
+      <div class="card__column card__column--35">
+        <div class="card__title">
+          <div class="card__title--bold">{{ user.name }}</div>
+          <div class="card__title--italic">{{ user.login }}</div>
+        </div>
+        <div class="card__description">
+          <div ng-if="user.location">{{ user.location }}</div>
+          <div ng-if="user.email">{{ user.email }}</div>
+          <div ng-if="user.html_url"><a ng-href="user.html_url">{{ user.html_url }}</a></div>
+          <div ng-if="user.created_at">Joined on {{ user.created_at | date:'MMM d, yyyy' }}</div>
+        </div>
+      </div>
+      <div class="card__column card__column--65">
+        <div class="card__row">
+          <div class="card__title--bold card__title--gray">
+            Popular Repositories
+          </div>
+          <div class="card__pill_container">
+            <a class="card__pill" ng-if="user.repos" ng-repeat="repo in user.repos| limitTo: user.repoLimit"
+              ng-href="{{ repo.html_url }}">
+              {{ repo.name }}
+            </a>
+            <span class="card__title--bold card__title--gray card__link" ng-if="user.repos.length > 5"
+              ng-click="toggleRepoLimit(user)">{{ user.repoLimit === 5 ? 'View all' : 'Hide' }}</span>
+          </div>
+        </div>
+        <div class="card__row">
+          <div class="card__title--bold card__title--gray">
+            Bio
+          </div>
+          <div>
+            {{ user.bio || 'N/A' }}
+          </div>
+        </div>
+      </div>
+    </div> <!-- close right section -->
+  </div> <!-- close profile card -->

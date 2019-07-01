@@ -9,7 +9,8 @@ window.sample.config([
           url: '/',
           views: {
             'content': {
-              template: ''
+              controller: 'UsersController',
+              templateUrl: '/users/index.html'
             }
           }
         }
