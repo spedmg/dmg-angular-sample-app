@@ -4,8 +4,14 @@ window.services.service('UsersService', [
     'use strict';
 
     return {
-      get: function () {
+      getUsers: function () {
         return http.get('/api/v1/users');
+      },
+      getUser: function (username) {
+        return http.get(`/api/v1/users/${username}`);
+      },
+      getUserRepos: function (username) {
+        return http.get(`/api/v1/repos/${username}`);
       }
     };
   }
